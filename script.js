@@ -66,11 +66,11 @@ envelopeWrapper.addEventListener("click", () => {
         body.classList.remove("no-scroll"); // Allow scrolling
         musicBtn.style.display = "block"; // Show floating music button
         AOS.refresh();
-    }, 4500);
+    }, 6000);
 
     setTimeout(() => {
         openingScreen.style.display = "none";
-    }, 5800);
+    }, 7300);
 
     // Smart Music Fading Logic
     music.volume = 0.0; // Start at 0

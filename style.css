@@ -209,7 +209,7 @@ body.no-scroll {
 }
 
 .envelope-card.pull-out {
-    transform: translateY(-45%);
+    transform: translateY(-75%);
 }
 
 .envelope-left {
@@ -750,7 +750,7 @@ body.no-scroll {
     }
 
     .envelope-card.pull-out {
-        transform: translateY(-45%);
+        transform: translateY(-75%);
     }
 
     .wax-seal span {
