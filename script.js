@@ -12,8 +12,7 @@ if (typeof tsParticles !== 'undefined') {
             size: { value: 3, random: true, anim: { enable: false } },
             move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
         },
-        interactivity: { events: { onhover: { enable: true, mode: "bubble" }, onclick: { enable: false } } },
-        retina_detect: true
+        interactivity: { events: { onhover: { enable: false, mode: "bubble" }, onclick: { enable: false } } }
     });
 }
 
@@ -98,19 +97,7 @@ envelopeWrapper.addEventListener("click", () => {
 
 
 // --- 2. MULTI-LAYER HERO PARALLAX DEPTH ---
-// Listen to mouse movement and shift the background layer inversely
-document.getElementById("hero-section").addEventListener("mousemove", (e) => {
-    // Only fetch movements if window width > 768px to avoid mobile weirdness
-    if (window.innerWidth > 768) {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
-        document.getElementById("hero-bg").style.transform = `translate(${xAxis}px, ${yAxis}px)`;
-    }
-});
-// Reset back when mouse leaves
-document.getElementById("hero-section").addEventListener("mouseleave", () => {
-    document.getElementById("hero-bg").style.transform = `translate(0px, 0px)`;
-});
+// Background mouse tracking animation has been removed as per user request.
 
 // Floating Music Button global toggle with fading transition
 let isFading = false;

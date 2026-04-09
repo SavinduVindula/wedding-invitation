@@ -1,10 +1,15 @@
 /* --- GLOBAL EXTRAS & MICRO-INTERACTIONS --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html,
 body {
     overflow-x: hidden;
-    max-width: 100vw;
     position: relative;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -139,6 +144,7 @@ body.no-scroll {
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh; /* Better for mobile */
     z-index: 9999;
     transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 1s ease-in-out;
 }
@@ -331,20 +337,20 @@ body.no-scroll {
 /* --- 2. HERO PARALLAX DEPTH & DUST PARTICLES --- */
 .hero {
     height: 100vh;
+    height: 100dvh; /* Fix mobile layout shifts */
     position: relative;
     overflow: hidden;
 }
 
 #hero-bg {
     position: absolute;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url('bg.jpg') center/cover fixed;
     background-color: #2c3e50;
     z-index: 0;
-    transition: transform 0.1s linear;
 }
 
 #hero-bg:not(:has(img)) {
@@ -431,7 +437,7 @@ body.no-scroll {
 }
 
 .invite-msg {
-    padding: 120px 0;
+    padding: 120px 20px;
 }
 
 .invite-msg h3 {
@@ -749,5 +755,21 @@ body.no-scroll {
 
     .wax-seal span {
         font-size: 18px;
+    }
+}
+
+/* Fix background-attachment: fixed on mobile (breaks iOS Safari) */
+@media screen and (max-width: 992px) {
+    #hero-bg,
+    .parallax-section,
+    .countdown-bg {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+    
+    .hero, 
+    #opening-screen {
+        height: 100dvh !important;
+        min-height: -webkit-fill-available;
     }
 }
