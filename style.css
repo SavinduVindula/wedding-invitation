@@ -260,11 +260,13 @@ body.no-scroll {
     height: 50%;
     background: linear-gradient(to bottom, #deb96c, #c8a96a) !important;
     transform-origin: top;
-    /* Very slow 1.8s envelope flip opening */
-    transition: transform 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0s 0.8s;
+    /* iOS Fix: no bouncing bezier (which causes 3D intersection/flickering) */
+    transition: transform 1.5s ease-in-out, z-index 0s 0.75s;
     z-index: 5;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    /* filter removed to prevent Safari rasterization blinking */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .envelope-flap.opened {
